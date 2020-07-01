@@ -12,12 +12,12 @@ import io.vertx.core.json.JsonObject;
  * vd: Khởi tạo 1 vertical  < xem khái niệm vertical>
  *
  */
-public class App3_exception_handler extends AbstractVerticle {
+public class App8_exception_handler2 extends AbstractVerticle {
 
 	public static void main(String[] args) throws InterruptedException{
 		Vertx vertx = Vertx.vertx();
 
-		Verticle verticle = new App3_exception_handler();
+		Verticle verticle = new App8_exception_handler2();
 		
 		vertx.deployVerticle(verticle); //asynchronous call MyVerticle1.start() in worker thread
 
@@ -31,7 +31,7 @@ public class App3_exception_handler extends AbstractVerticle {
 			}
 		});
 		
-	
+		
 		
 	}
 	
@@ -39,7 +39,12 @@ public class App3_exception_handler extends AbstractVerticle {
 	public void start() throws Exception {
 		super.start();
 		
-		throw new Exception("test Exception Handler");
+	
+		String jsonString = "đfsdfsdfdsdfdfs";
+		
+		//Json exception parsing
+		JsonObject jsonObject = new JsonObject(jsonString);
+		System.out.println(jsonObject.toString());
 
 	}
 

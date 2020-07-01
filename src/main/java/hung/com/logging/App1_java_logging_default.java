@@ -10,24 +10,18 @@ import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 
 /**
- * Nhược điểm: ko show đc Line number of code trên log để jump tới (trừ trường hợp Exception) => nên dùng log4j2 cho nó tiện.
+ * 
+ * java –jar <jar-file-name>.jar  -Djava.util.logging.config.file=/path/to/app.properties
  *
+ * Nếu ko sẽ dùng config mặc định của Java:  C:\Program Files\Java\jdk-11.0.2\conf\logging.properties
+ *  (đây ko phải là ứng dụng Vertx, nên ko dùng file config default của Vertx đc)
+ *  
  */
-public class App2_vertx_exception extends AbstractVerticle {
-	
-	static Logger logger = Logger.getLogger(App1_java_basic.class.getName());
-	
+public class App1_java_logging_default extends AbstractVerticle {
+
 	public static void main(String[] args) throws InterruptedException{
-		
-		//
-		Vertx vertx = Vertx.vertx();
-		vertx.deployVerticle(new App2_vertx_exception()); //asynchronous call MyVerticle1.start() in worker thread
-		
-	}
-	
-	@Override
-	public void start() throws Exception {
-		super.start();
+
+		Logger logger = Logger.getLogger(App1_java_logging_default.class.getName());
 		
 		// # SEVERE, WARNING, INFO, CONFIG, FINE, FINER, FINEST
 		logger.finest("FINEST");
@@ -40,9 +34,8 @@ public class App2_vertx_exception extends AbstractVerticle {
 		
 		new TestB().testLogging();
 		new TestC().testLogging();
-		
-		// Vertx 4.0 Milestone5 ko hiển thị Vertx-Log => lỗi
-		throw new Exception("test Exception Handler");
 	}
+	
+
 
 }
