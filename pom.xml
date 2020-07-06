@@ -65,6 +65,7 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
+
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
@@ -75,7 +76,7 @@
 						</configuration>
 					</execution>
 					<execution>
-					    <!-- id phải duy nhất ko trùng lặp -->
+						<!-- id phải duy nhất ko trùng lặp -->
 						<id>build-second</id>
 						<phase>package</phase>
 						<goals>
@@ -87,9 +88,9 @@
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<!-- cách 2: content in jar \META-INF\MANIFEST.MF là chuẩn của Java -->
 									<manifestEntries>
-									    <!-- các tên này theo chuẩn của Java -->
+										<!-- các tên này theo chuẩn của Java -->
 										<Main-Class>hung.com.logging.App2_java_logging_properties_file</Main-Class>
-										
+
 										<!-- <Class-Path> a.jar \root\b.jar c.jar</Class-Path> -->
 										<!-- ko add đc Params cho exe ở Manifest file -->
 										<Created-By>Hungnm2</Created-By>
