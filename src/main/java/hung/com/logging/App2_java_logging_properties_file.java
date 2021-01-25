@@ -19,7 +19,7 @@ import io.vertx.core.Vertx;
  *  (đây ko phải là ứng dụng Vertx, nên ko dùng file config default của Vertx đc)
  *  
  */
-public class App2_java_logging_properties_file extends AbstractVerticle {
+public class App2_java_logging_properties_file  {
 
 	public static void main(String[] args) throws Exception{
 		
@@ -50,13 +50,14 @@ public class App2_java_logging_properties_file extends AbstractVerticle {
 
 		Logger logger = Logger.getLogger(App2_java_logging_properties_file.class.getName());
 
+
 		// # SEVERE, WARNING, INFO, CONFIG, FINE, FINER, FINEST
 		logger.finest("FINEST");
 		logger.finer("FINER");
 		logger.fine("FINE");
 		logger.config("CONFIG");
 		logger.info("INFO");
-		logger.warning("WARNING");
+		logger.warning("WARNING" + " (" + App2_java_logging_properties_file.class.getSimpleName() + ".java:1)"); // lệnh này ko ngốn perfromance
 		logger.severe("SEVERE");
 
 		new TestB().testLogging();

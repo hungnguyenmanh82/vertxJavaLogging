@@ -11,13 +11,16 @@ import io.vertx.core.Vertx;
 
 /**
  * 
- * java –jar <jar-file-name>.jar  -Djava.util.logging.config.file=/path/to/app.properties
- *
  * Nếu ko sẽ dùng config mặc định của Java:  C:\Program Files\Java\jdk-11.0.2\conf\logging.properties
  *  (đây ko phải là ứng dụng Vertx, nên ko dùng file config default của Vertx đc)
- *  
+ * 
+ * cách 1: release mode (run at commandline CMD)
+ *  java -Djava.util.logging.config.file=/path/to/app.properties  –jar <jar-file-name>.jar
+ * 
+ * cách 2: debug F11
+ *     set SystemProperties ở Pom.xml với maven-surefire-plugin 
  */
-public class App1_java_logging_default extends AbstractVerticle {
+public class App1_java_logging_default{
 
 	public static void main(String[] args) throws InterruptedException{
 

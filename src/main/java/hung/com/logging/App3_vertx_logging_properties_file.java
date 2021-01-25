@@ -10,7 +10,7 @@ import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 
 /**
- * dùng file: vertx-default-jul-logging.properties
+ * Đây là Vertx nên nó sẽ đọc file config mặc định:  src/main/resources/vertx-default-jul-logging.properties
  * 
  * Nhược điểm: ko show đc Line number of code trên log để jump tới (trừ trường hợp Exception) => nên dùng log4j2 cho nó tiện.
  *
